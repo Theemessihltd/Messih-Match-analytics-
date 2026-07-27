@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "buildCommand": "echo 'Vercel deployment ready'",
+  "env": {
+    "GITHUB_APP_ID": "@github_app_id",
+    "GITHUB_APP_PRIVATE_KEY": "@github_app_private_key",
+    "GITHUB_APP_CLIENT_ID": "@github_app_client_id",
+    "GITHUB_APP_CLIENT_SECRET": "@github_app_client_secret",
+    "GITHUB_WEBHOOK_SECRET": "@github_webhook_secret"
+  },
+  "functions": {
+    "api/github-app.js": {
+      "memory": 1024,
+      "maxDuration": 30
+    }
+  },
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api/github-app.js" }
+  ]
+}
